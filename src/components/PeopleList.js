@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react';
+import PersonRow from './PersonRow';
 
 export default class PeopleList extends Component {
     state = {
-        apiPeople: ["Joe"]
+        apiPeople: [
+            {
+                name: "Joe",
+                email: "joe@here.com",
+                jobTitle: "Manager"
+            },
+            {
+                name: "Joe",
+                email: "joe@here.com",
+                jobTitle: "Manager"
+            }
+        ]
     }
 
     render() {
@@ -11,7 +23,11 @@ export default class PeopleList extends Component {
         let peopleList = []
         if (this.state.apiPeople) {
             peopleList = this.state.apiPeople.map((person, i) => {
-                return person
+                return <PersonRow
+                    name={person.name}
+                    email={person.email}
+                    jobTitle={person.jobTitle}
+                />
             })
         }
 
