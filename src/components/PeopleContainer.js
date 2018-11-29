@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
+import PeopleList from './PeopleList';
 
 export default class PeopleContainer extends Component {
     render() {
@@ -14,13 +15,7 @@ export default class PeopleContainer extends Component {
                             <Table.HeaderCell>Job Title</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    <Table.Body>
-                        <Table.Row>
-                            <Table.Cell>John</Table.Cell>
-                            <Table.Cell>John@here.com</Table.Cell>
-                            <Table.Cell>Manager</Table.Cell>
-                        </Table.Row>
-                    </Table.Body>
+                    <PeopleList />
                 </Table>
             </div>
         )
