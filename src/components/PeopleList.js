@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react';
 import PersonRow from './PersonRow';
+import axios from 'axios';
 
 export default class PeopleList extends Component {
     state = {
-        apiPeople: [
-            {
-                name: "Joe",
-                email: "joe@here.com",
-                jobTitle: "Manager"
-            },
-            {
-                name: "Joe",
-                email: "joe@here.com",
-                jobTitle: "Manager"
-            }
-        ]
+        apiPeople: []
+    }
+
+    getPeopleData = async () => {
+        const webApiUrl = 'https://api.salesloft.com/v2/people.json'
+        const token = process.env.REACT_APP_API_KEY
+        const response = await axios.get(webApiUrl, { headers: { "Authorization" : `Bearer ${token}` } })
+        console.log(response)
+    }
+
+    componentDidMount = () => {
+        this.getPeopleData()
     }
 
     render() {
